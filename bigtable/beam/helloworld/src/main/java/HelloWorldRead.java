@@ -51,7 +51,7 @@ public class HelloWorldRead {
             .withProjectId(options.getBigtableProjectId())
             .withInstanceId(options.getBigtableInstanceId())
             .withTableId(options.getBigtableTableId())
-            .withAppProfileId("offline")
+            .withAppProfileId(options.getBigtableAppProfileId())
             .withScan(scan)
             .withConfiguration(BigtableOptionsFactory.BIGTABLE_HOST_KEY,
                 "test-bigtable.sandbox.googleapis.com")
@@ -92,6 +92,12 @@ public class HelloWorldRead {
     String getBigtableTableId();
 
     void setBigtableTableId(String bigtableTableId);
+
+    @Description("The Bigtable app profile ID in the instance.")
+    @Default.String("default")
+    String getBigtableAppProfileId();
+
+    void setBigtableAppProfileId(String bigtableAppProfileId);
   }
 }
 // [END bigtable_beam_helloworld_read]
